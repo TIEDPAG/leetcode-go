@@ -11,35 +11,37 @@ func Test1(t *testing.T) {
 
 	p1 := arrToList(arr1)
 	p2 := arrToList(arr2)
+	printList(p1)
+	printList(p2)
 	printList(mergeTwoLists(p1, p2))
 
-	arr1 = []int{}
-	arr2 = []int{}
-
-	p1 = arrToList(arr1)
-	p2 = arrToList(arr2)
-	printList(mergeTwoLists(p1, p2))
-
-	arr1 = []int{1, 3, 5, 7, 9}
-	arr2 = []int{2, 4}
-
-	p1 = arrToList(arr1)
-	p2 = arrToList(arr2)
-	printList(mergeTwoLists(p1, p2))
-
-	arr1 = []int{1, 2, 3, 4}
-	arr2 = []int{}
-
-	p1 = arrToList(arr1)
-	p2 = arrToList(arr2)
-	printList(mergeTwoLists(p1, p2))
-
-	arr1 = []int{1, 2, 3, 4}
-	arr2 = []int{5}
-
-	p1 = arrToList(arr1)
-	p2 = arrToList(arr2)
-	printList(mergeTwoLists(p1, p2))
+	//arr1 = []int{}
+	//arr2 = []int{}
+	//
+	//p1 = arrToList(arr1)
+	//p2 = arrToList(arr2)
+	//printList(mergeTwoLists(p1, p2))
+	//
+	//arr1 = []int{1, 3, 5, 7, 9}
+	//arr2 = []int{2, 4}
+	//
+	//p1 = arrToList(arr1)
+	//p2 = arrToList(arr2)
+	//printList(mergeTwoLists(p1, p2))
+	//
+	//arr1 = []int{1, 2, 3, 4}
+	//arr2 = []int{}
+	//
+	//p1 = arrToList(arr1)
+	//p2 = arrToList(arr2)
+	//printList(mergeTwoLists(p1, p2))
+	//
+	//arr1 = []int{1, 2, 3, 4}
+	//arr2 = []int{5}
+	//
+	//p1 = arrToList(arr1)
+	//p2 = arrToList(arr2)
+	//printList(mergeTwoLists(p1, p2))
 }
 
 func arrToList(arr []int) *ListNode {
