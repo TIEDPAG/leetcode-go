@@ -19,6 +19,11 @@ func TestJson(t *testing.T) {
 	t.Log(Json("{\n        \"_id\" : ObjectId(\"5f598db0e9d23a1cca6c99b2\"),\n        \"eventName\" : \"userJoin\",\n        \"timestamp\" : NumberLong(\"1599704496013\"),\n        \"info\" : {\n                \"userId\" : \"1298076054931996673\",\n                \"roomId\" : \"61\",\n                \"role\" : \"TEACHER\"\n        },\n        \"_class\" : \"com.lks.platform.inclass.signaling.entity.RoomEventLog\"\n}"))
 }
 
+type TestS struct {
+	value int32
+}
+
 func TestInterface(t *testing.T) {
-	
+	//kv := make( map[int32]TestS)
+
 }
