@@ -23,7 +23,8 @@ func Test1(t *testing.T) {
 		},
 	}
 
-	h = reverseKGroup(h, 2)
+	h = reverseKGroup(h, 4)
+	//h, _ = reverse(h, nil, 3)
 	for h != nil {
 		t.Log(h.Val)
 		h = h.Next

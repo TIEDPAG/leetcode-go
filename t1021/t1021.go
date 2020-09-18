@@ -19,7 +19,7 @@ func removeOuterParentheses(S string) string {
 				continue
 			}
 		}
-		sb.WriteString(string(ch))
+		sb.WriteByte(byte(ch))
 	}
 	return sb.String()
 }
