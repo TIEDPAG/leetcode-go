@@ -82,3 +82,92 @@ func Json(str string) Event {
 	}
 	return rs
 }
+
+func LargestRectangleArea(heights []int) int {
+	l := len(heights)
+	if len(heights) == 0 {
+		return 0
+	}
+	heights = append(heights, 0)
+	heights = append([]int{0}, heights...)
+	l += 2
+	stack := make([]int, 0)
+	maxArea := 0
+
+	for i := 0; i < l; i++ {
+		if len(stack) == 0 {
+			stack = append(stack, i)
+			continue
+		}
+
+		for {
+			if len(stack) == 0 || heights[i] <= heights[stack[len(stack)-1]] {
+				stack = append(stack, i)
+				break
+			}
+
+			// 出栈  并计算面积
+			area := 0
+			stack, area = pop(stack, heights, i)
+
+			if area > maxArea {
+				maxArea = area
+			}
+		}
+	}
+
+	return maxArea
+}
+
+func pop(stack, heights []int, right int) ([]int, int) {
+	cur := stack[len(stack)-1]
+	stack = stack[:len(stack)-1]
+
+	if heights[cur] == 0 {
+		return stack, 0
+	}
+	left := stack[len(stack)-1]
+
+	area := heights[cur] * (right - left)
+	return stack, area
+}
+
+type Node struct {
+	Val      int
+	Children []*Node
+}
+
+func Bfs(node *Node) []int {
+	if node == nil {
+		return []int{}
+	}
+	var arr []int
+	queue := []*Node{node}
+	for len(queue) != 0 {
+		cur := queue[0]
+		queue = queue[1:]
+		arr = append(arr, cur.Val)
+		queue = append(queue, cur.Children...)
+	}
+	return arr
+}
+
+type IntHeap []int
+
+func (h IntHeap) Len() int           { return len(h) }
+func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+
+func (h *IntHeap) Push(x interface{}) {
+	// Push and Pop use pointer receivers because they modify the slice's length,
+	// not just its contents.
+	*h = append(*h, x.(int))
+}
+
+func (h *IntHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
+}

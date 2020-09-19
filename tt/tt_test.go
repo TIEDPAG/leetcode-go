@@ -49,3 +49,34 @@ func TestInterface(t *testing.T) {
 	}
 	t.Log(string(bs[:l]))
 }
+
+func TestLargestRectangleArea(t *testing.T) {
+	t.Log(LargestRectangleArea([]int{2, 1, 5, 6, 2, 3}))
+}
+
+func TestBfs(t *testing.T) {
+	root := &Node{
+		Val: 1,
+		Children: []*Node{{
+			Val: 2,
+			Children: []*Node{{
+				Val: 5,
+				Children: []*Node{{
+					Val:      6,
+					Children: nil,
+				}, {
+					Val:      7,
+					Children: nil,
+				}},
+			}},
+		}, {
+			Val:      3,
+			Children: nil,
+		}, {
+			Val:      4,
+			Children: nil,
+		}},
+	}
+
+	t.Log(Bfs(root))
+}
