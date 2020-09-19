@@ -7,7 +7,7 @@ func nthUglyNumber(n int) int {
 	set := make(map[int]bool)
 	count := 0
 
-	for count < n {
+	for {
 		top := (heap.Pop(h)).(int)
 		count++
 		if count == n {
@@ -27,7 +27,6 @@ func nthUglyNumber(n int) int {
 			set[top*5] = true
 		}
 	}
-	return 0
 }
 
 // 以下借由golang官方库的heap interface接口来实现堆  下面堆的实现来自golang官方的测试用例
